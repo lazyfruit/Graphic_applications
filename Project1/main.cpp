@@ -12,7 +12,7 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, in
 {
 
 #ifdef MESSAGE_BOX
-	//https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-messagebox
+	//Документация: https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-messagebox
 	MessageBox(NULL, "Hello World!", "Info",
 		MB_YESNOCANCEL | MB_ICONQUESTION | MB_SYSTEMMODAL | MB_HELP | MB_DEFBUTTON2 |
 		MB_RIGHT | MB_SETFOREGROUND
@@ -67,8 +67,8 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			SendMessage(GetDlgItem(hwnd, IDC_EDIT2), WM_SETTEXT, 0, (LPARAM)buffer);
 		}
 		break;
-		case IDOK:		MessageBox(NULL, "Была нажата кнопка OK", "Info", MB_ICONINFORMATION); break;
-		case IDCANCEL:	EndDialog(hwnd, 0); break;
+		case IDOK: MessageBox(NULL, L"Была нажата кнопка OK", L"Info", MB_ICONINFORMATION); break;
+		case IDCANCEL: EndDialog(hwnd, 0); break;
 		case IDC_EDIT1:
 		{
 			CONST INT SIZE = 256;
