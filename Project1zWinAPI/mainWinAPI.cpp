@@ -1,26 +1,26 @@
-#include<Windows.h>
+п»ї#include<Windows.h>
 #include"resource.h"
 
 //#define MESSAGE_BOX
-BOOL CALLBACK DlgProc(HWND hwnd,//hwnd - handler to window (окно)
-	UINT uMsg,//Сообщение
-	WPARAM wParam, LPARAM lParam);//Параметры сообщения
+BOOL CALLBACK DlgProc(HWND hwnd,//hwnd - handler to window (РѕРєРЅРѕ)
+	UINT uMsg,//РЎРѕРѕР±С‰РµРЅРёРµ
+	WPARAM wParam, LPARAM lParam);//РџР°СЂР°РјРµС‚СЂС‹ СЃРѕРѕР±С‰РµРЅРёСЏ
 
 INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, int nCmdShow)
 {
-#ifdef MESSAGE_BOX //Протейшее окно
-	MessageBox(//Старая функция имеющая много документации
+#ifdef MESSAGE_BOX //РџСЂРѕС‚РµР№С€РµРµ РѕРєРЅРѕ
+	MessageBox(//РЎС‚Р°СЂР°СЏ С„СѓРЅРєС†РёСЏ РёРјРµСЋС‰Р°СЏ РјРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°С†РёРё
 			   //https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-messagebox
-		NULL,//Ссыдка на главное окно
-		"Вы создали ваше первое окно!",//Выводимое сообщение
-		"Info",//Заголовок
-		/*MB_OKCANCEL*/ /*MB_YESNO*/ MB_YESNOCANCEL |//Задаем доступные клавиши
-		MB_HELP | //Клавиша помощи-справки (не закрывает окно)
-		MB_ICONINFORMATION /*MB_ICONWARNING*/ /*MB_ICONERROR*/ |//Задаем тип окна информации
-		MB_SYSTEMMODAL |//Устанавливаем окно жестко модальным для всей системы
-		MB_DEFBUTTON4 |//Задаем клавишу по умолчанию
-		MB_RIGHT);//Выравнимает текст в окне по правому краю
-		//MB сокр. от MessageBox  
+		NULL,//РЎСЃС‹РґРєР° РЅР° РіР»Р°РІРЅРѕРµ РѕРєРЅРѕ
+		"Р’С‹ СЃРѕР·РґР°Р»Рё РІР°С€Рµ РїРµСЂРІРѕРµ РѕРєРЅРѕ!",//Р’С‹РІРѕРґРёРјРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ
+		"Info",//Р—Р°РіРѕР»РѕРІРѕРє
+		/*MB_OKCANCEL*/ /*MB_YESNO*/ MB_YESNOCANCEL |//Р—Р°РґР°РµРј РґРѕСЃС‚СѓРїРЅС‹Рµ РєР»Р°РІРёС€Рё
+		MB_HELP | //РљР»Р°РІРёС€Р° РїРѕРјРѕС‰Рё-СЃРїСЂР°РІРєРё (РЅРµ Р·Р°РєСЂС‹РІР°РµС‚ РѕРєРЅРѕ)
+		MB_ICONINFORMATION /*MB_ICONWARNING*/ /*MB_ICONERROR*/ |//Р—Р°РґР°РµРј С‚РёРї РѕРєРЅР° РёРЅС„РѕСЂРјР°С†РёРё
+		MB_SYSTEMMODAL |//РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РѕРєРЅРѕ Р¶РµСЃС‚РєРѕ РјРѕРґР°Р»СЊРЅС‹Рј РґР»СЏ РІСЃРµР№ СЃРёСЃС‚РµРјС‹
+		MB_DEFBUTTON4 |//Р—Р°РґР°РµРј РєР»Р°РІРёС€Сѓ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		MB_RIGHT);//Р’С‹СЂР°РІРЅРёРјР°РµС‚ С‚РµРєСЃС‚ РІ РѕРєРЅРµ РїРѕ РїСЂР°РІРѕРјСѓ РєСЂР°СЋ
+		//MB СЃРѕРєСЂ. РѕС‚ MessageBox  
 #endif // MESSAGE_BOX
 
 	DialogBoxParam(hInstance, MAKEINTRESOURCE(IDD_DIALOG1), 0, DlgProc, 0);
@@ -28,7 +28,7 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, in
 	return 0;
 }
 
-//Сайт иконок: https://icon-icons.com/ru/
+//РЎР°Р№С‚ РёРєРѕРЅРѕРє: https://icon-icons.com/ru/
 
 BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
@@ -39,7 +39,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
 		switch (LOWORD(wParam))
 		{
-		case IDOK:MessageBox(NULL, "Была нажата кнопка OK", "Info", MB_ICONINFORMATION); break;
+		case IDOK:MessageBox(NULL, L"Р‘С‹Р»Р° РЅР°Р¶Р°С‚Р° РєРЅРѕРїРєР° OK", L"Info", MB_ICONINFORMATION); break;
 		case IDCANCEL:	EndDialog(hwnd, 0); break;
 		}
 	} break;
@@ -55,7 +55,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 //{
 //CONST INT SIZE = 256;
 //CHAR buffer[SIZE]{};
-//HWND hEdit = GetDlgItem(hwnd, IDC_EDIT1);//Получаем Handler текстового поля по номеру его ресурса
+//HWND hEdit = GetDlgItem(hwnd, IDC_EDIT1);//РџРѕР»СѓС‡Р°РµРј Handler С‚РµРєСЃС‚РѕРІРѕРіРѕ РїРѕР»СЏ РїРѕ РЅРѕРјРµСЂСѓ РµРіРѕ СЂРµСЃСѓСЂСЃР°
 //SendMessage(hEdit, WM_GETTEXT, SIZE, (LPARAM)buffer);
 //SendMessage(GetDlgItem(hwnd, IDC_EDIT2), WM_GETTEXT, 0, (LPARAM)buffer);
 //}
